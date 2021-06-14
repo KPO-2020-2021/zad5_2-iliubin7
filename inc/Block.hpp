@@ -4,6 +4,7 @@
 #include "Matrix3D.hpp"
 #include <fstream>
 #include <vector>
+#include <memory>
 /*!
 * \file Block.hpp
 *
@@ -19,9 +20,9 @@ class Block
  */
  protected:
  /*!
- * Wskaznik na wektor 3D przechowujacy wymiary bryly.
+ * Wskaznik wspoldzielony na wektor 3D przechowujacy wymiary bryly.
  */
- Vector3D *sizes_of_block;
+ std::shared_ptr<Vector3D> sizes_of_block;
  /*!
  * Wierzcholki bryly.
  */          
@@ -52,19 +53,7 @@ class Block
  */ 
  void rotation(Matrix3D rot);
  /*!
- * Metoda do zapisu danych bryly
+ * Metoda do zapisu danych bryly.
  */
  void write_to_file();
-
-/*!
-* \brief Destruktor klasy Block.
-* Argumenty:
-*    Brak argumentow.
-* Zwraca:
-*   Usuwa dynamicznie stworzony obiekt.
-*/
-~Block()
-{
-delete sizes_of_block;
-}
 };

@@ -48,6 +48,7 @@ set(SOURCES          # All .cpp files in src/
     src/Dron.cpp
     src/Surface.cpp
     src/Scene.cpp
+    src/Plateau.cpp
 
 )
 set(TESTFILES        # All .cpp files in tests/
