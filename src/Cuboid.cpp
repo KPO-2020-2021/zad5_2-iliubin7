@@ -3,7 +3,7 @@
 Cuboid::Cuboid(Vector3D center, double x,double y, double z,std::string name)
 {
     double tab[]={x,y,z};
-    sizes_of_block= new Vector3D(tab);
+    sizes_of_block = std::make_shared<Vector3D> (tab);
     this->name=name;
   this->center=center;
   Vector3D p;

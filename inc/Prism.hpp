@@ -22,15 +22,4 @@ class Prism : public Block
     * Graniastoslup
     */
     Prism(Vector3D center=Vector3D(),double z=10,double radius=15,std::string name = "../datasets/prism.dat");
-     /*!
-    * \brief Destruktor klasy Prism.
-    * Argumenty:
-    *    Brak argumentow.
-    * * Zwraca:
-    *   Zwalnia dynamicznie zaalokowana pamiec.
-    */
-    ~Prism()
-    {
-    delete sizes_of_block;
-    }
 };

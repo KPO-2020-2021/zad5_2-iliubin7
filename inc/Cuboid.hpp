@@ -25,7 +25,7 @@ Cuboid(Cuboid& pr);
 Cuboid &operator=(const Cuboid &other)
     {
   sizes_of_block=other.sizes_of_block;
-  sizes_of_block=other.vertex;
+  vertex=other.vertex;
   center=other.center;
   name=other.name;
   return *this;

@@ -3,7 +3,7 @@
 Prism::Prism(Vector3D center, double z, double radius , std::string name)
 {
     double tab[] = {0, 0, z};
-    sizes_of_block = new Vector3D(tab);
+    sizes_of_block =std::make_shared<Vector3D> (tab);
     this->name = name;
     this->center = center;
     Vector3D p;
