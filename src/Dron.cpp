@@ -9,9 +9,9 @@ Dron::Dron(int id, PzG::LaczeDoGNUPlota &Lacze, Vector3D position) : Lacze(Lacze
     for (int i = 0; i < 4; i++)
         oryg_rotor[i].set_name("../datasets/rotor" + std::to_string(i) + std::to_string(id) + ".dat");
 
-    Lacze.DodajNazwePliku(orginal.get_name().c_str(), PzG::RR_Ciagly, 2);
+    Lacze.DodajNazwePliku(orginal.get_name().c_str());
     for (int i = 0; i < 4; i++)
-        Lacze.DodajNazwePliku(oryg_rotor[i].get_name().c_str(), PzG::RR_Ciagly, 2);
+        Lacze.DodajNazwePliku(oryg_rotor[i].get_name().c_str());
     copy = orginal;
 
     copy.translate(position);
@@ -193,7 +193,7 @@ void Dron::way_by_circle(double r)
             Lacze.Rysuj();
             usleep(TIME);
         }
-       Lacze.UsunOstatniaNazwe();
+       Lacze.UsunNazwePliku("../datasets/way.dat");
 }
 
 void Dron::control()
@@ -215,7 +215,7 @@ void Dron::control()
         cout << "podaj dlugosc lotu: ";
         cin >> way;
         def_way(way, angle);
-        Lacze.DodajNazwePliku("../datasets/way.dat", PzG::RR_Ciagly, 2);
+        Lacze.DodajNazwePliku("../datasets/way.dat");
         for (int i = 0; i < 100; i++)
         {
             copy = orginal;
@@ -255,7 +255,7 @@ void Dron::control()
             Lacze.Rysuj();
             usleep(TIME);
         }
-    Lacze.UsunOstatniaNazwe();
+    Lacze.UsunNazwePliku("../datasets/way.dat");
         break;
     case 'o':
         cout << "podaj kierunek lotu (kat w stopniach): ";
