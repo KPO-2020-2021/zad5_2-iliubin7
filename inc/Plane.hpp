@@ -14,13 +14,13 @@ class Plane : public Block
 
 public:
 /*!
-* Konstruktor parametryczny gory
+* Konstruktor parametryczny gory z grania
 */
 Plane(Vector3D center=Vector3D(), double x=50,double y=50, double z=50,std::string name="../datasets/Plane.dat");
 
 Plane(Plane& pr);
 /*!
-* Przeciazenie operatora = klasy Plane (Gran)
+* Przeciazenie operatora = klasy Plane (gora z grania)
 */
 Plane &operator = (const Plane &other)
     {

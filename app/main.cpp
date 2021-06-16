@@ -29,7 +29,8 @@ int main() {
             << PROJECT_VERSION_TWEAK
             << std::endl;
   std::system("cat ../LICENSE");
-  Vector3D vec;
+       srand(time(NULL));
+     Vector3D vec;
    Scene s;
    vec.info();
        while (s.interface())
@@ -37,10 +38,9 @@ int main() {
             s.draw();
             vec.info();
        }
-       Dummy d = Dummy();
-       return d.doSomething() ? 0 : -1;
+}
 
  
 
   
-}
+

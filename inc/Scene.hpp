@@ -7,6 +7,11 @@
 #include "lacze_do_gnuplota.hpp"
 #include "Dron.hpp"
 #include "Surface.hpp"
+#include "Plateau.hpp"
+#include "Mount.hpp"
+#include "Plane.hpp"
+#include <list>  // dla listy
+#include <memory> // dla wskaznikow wspoldzielonych
 
 #define N 2
 /*!
@@ -19,11 +24,23 @@
 */
 class Scene
 {
+ /*!
+ * Lista obiektow typu Block
+ */
+ std::list<std::shared_ptr<Block>> List_of_elements;
  PzG::LaczeDoGNUPlota Lacze;
  /*!
- * Tablica dronow
+ * Lista obiektow typu Dron
  */
- Dron *tab[N];
+ std::list<std::shared_ptr<Dron>> List_of_drons;
+ /*!
+ * zmienna dla odwolywania do poszczegolnych elementow na scenie (plaskowyz, gora i td.).
+ */
+  int nr_elem;
+  /*!
+ * zmienna dla odwolywania do konkretnego drona na scenie.
+ */
+  int nr_dron;
  /*!
  * Dno plaszczyzny
  */
