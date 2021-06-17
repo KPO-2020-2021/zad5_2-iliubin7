@@ -1,3 +1,11 @@
+![Class diagram](/diagram5_2.png)
+
+## Dokumentacja
+``` text
+
+Dokumentacja znajduje sie w pliku documentation.
+
+```
 
 ## Building
 
