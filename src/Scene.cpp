@@ -55,11 +55,12 @@
  bool  Scene::interface()
  {
   cout << "a - wybierz aktywnego drona" << endl;
-  cout << "d - dodaj element powierzchni" << endl;
+  cout << "d - dodaj element powierzchni (lub drona)" << endl;
   cout << "u - usun element powierzchni" << endl;
+  cout << "k - usun drona" << endl;
   char op;
   cin >> op;
-  switch (op)
+  switch(op)
   {
   case 'a':
   {
@@ -87,7 +88,8 @@
     cout << "1 - Gora z ostrym szczytem" << endl;
     cout << "2 - Gora z grania" << endl;
     cout << "3 - Plaskowyz" << endl;
-
+    cout << "4 - Dron" << endl;
+  
     int nr;
     cin >> nr;
     Vector3D cent;
@@ -96,7 +98,8 @@
     cent[1] = rand() % 400 - 200;
     cent[2] = 50;
 
-
+   if( nr!= 4)
+   { 
     if (nr == 1)
     {
 
@@ -116,6 +119,13 @@
     (*List_of_elements.begin())->write_to_file();
     Lacze.DodajNazwePliku((*List_of_elements.begin())->get_name().c_str());
   }
+  else
+{
+  double postition[3] = {(double)(rand() % 440 - 220), (double)(rand() % 440 - 220), 25};
+  List_of_drons.push_front(std::make_shared<Dron>(nr_dron, Lacze, Vector3D(postition)));
+  (*List_of_drons.begin())->write_to_file();
+}
+ }
   break;
   case 'u':
   {
@@ -138,7 +148,31 @@
     }
     
     Lacze.UsunNazwePliku((*a)->get_name());
-    List_of_elements.erase(a);
+    List_of_elements.erase(a); // usuwa z llinijki List_of_elements zaczynajac od symbolu z indeksem a i do konca linijki
+  }
+  break;
+  case 'k':
+  {
+    int i = 0;
+    for (std::list<std::shared_ptr<Dron>>::const_iterator a = List_of_drons.begin(); a != List_of_drons.end(); a++)
+    {
+      cout << i << ": " << (*a)->get_id() << endl;
+      i++;
+    }
+    cout << "podaj numer" << endl;
+
+    int nr;
+    cin >> nr;
+    std::list<std::shared_ptr<Dron>>::const_iterator a = List_of_drons.begin();
+
+    for (int j = 0; j < nr; j++)
+    {
+
+      a++;
+    }
+    
+   (*a)->del_obj();
+    List_of_drons.erase(a); // usuwa z llinijki List_of_elements zaczynajac od symbolu z indeksem a i do konca linijki
   }
   break;
 

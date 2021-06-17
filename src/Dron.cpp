@@ -321,3 +321,9 @@ void Dron::def_way(double way,double angle)
     }
     file.close();
 }
+void Dron::del_obj()
+  {
+    Lacze.UsunNazwePliku(orginal.get_name().c_str());
+    for (int i = 0; i < 4; i++)
+        Lacze.UsunNazwePliku(oryg_rotor[i].get_name().c_str());
+  }

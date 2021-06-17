@@ -98,4 +98,16 @@ public:
   * przemieszcza dron ruchem po okregu i nastepnie zwraca go na swoja poczatkowa pozycje.
   */
   void way_by_circle(double r);
+ /*!
+ * Metoda
+ * Usuwa objekt dron.
+ */
+ void del_obj();
+ /*!
+ * Metoda zwracajaca obiekt drona. 
+ */
+int get_id()
+ {
+   return id; 
+ }
 }; 

@@ -17,7 +17,9 @@ public:
 * Konstruktor parametryczny gory z grania
 */
 Plane(Vector3D center=Vector3D(), double x=50,double y=50, double z=50,std::string name="../datasets/Plane.dat");
-
+/*!
+* Konstruktor parametryczny gory z grania
+*/
 Plane(Plane& pr);
 /*!
 * Przeciazenie operatora = klasy Plane (gora z grania)
