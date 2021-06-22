@@ -64,7 +64,7 @@
   {
   case 'a':
   {
-    cout << "Wprowadz numer aktywnego drona, 0 lub 1: " << endl;
+    cout << "Wprowadz numer aktywnego drona: " << endl;
     for(int i=0; i<(int)List_of_drons.size(); i++)
     {
       cout<<i <<" ";
